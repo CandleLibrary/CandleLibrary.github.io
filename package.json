@@ -1,0 +1,10 @@
+{
+  "name": "@candlelib/site",
+  "version": "0.0.1",
+  "description": "Candle Library Website Static Data",
+  "main": "index.js",
+  "repository": "ssh://git@github.com/candlelibrary/candlelibrary.github.io",
+  "author": "ACWeathersby <acweathersby.codes@gmail.com>",
+  "license": "MIT",
+  "private": true
+}
