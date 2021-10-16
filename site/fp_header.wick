@@ -1,0 +1,66 @@
+import testing from "@test";
+import {module_name} from "@globals";
+
+const social_link_data = [
+    {src:"/img/github.png", href:`https://github.com/candlelibrary/${module_name ? module_name : ""}`, name:"github"},
+    {href:`https://github.com/candlelibrary/${module_name ? module_name : ""}`, name:"discord"}
+];
+
+export default <header>
+
+        <div id="nav-bug">
+            <img height=50 alt="CandleLibrary Logo" src="/resources/img/logo_with_name.png"/>
+            { (module_name) ? (": " + module_name) : "" }
+        </div>
+        <container id="nav-social-links" data={social_link_data}>
+            <a {href}><img width=30 src={src} alt={name}/></a>
+        </container>
+    </header>;
+<style>
+
+
+    root {
+        box-sizing: border-box;
+        position:sticky;
+        width:100%;
+        padding:5px 20px;
+        border-bottom: 1px solid rgb(230,230,230);
+        background-color:white;
+        top:0;
+        left:0;
+        z-index:100000;
+    }
+    
+    #nav-bug {
+        display:inline-flex;
+        align-content:center;
+        height:50px;
+    }
+
+    #nav-social-links {
+        display:inline-flex;
+        top:0;
+        align-content:center;
+        float:right;
+        height:50px;
+    }
+
+    #nav-social-links a {
+        display:inline-block;
+        height:30px;
+        margin:0 10px;
+        padding:5px;
+    }
+</style>
+
+testing: {
+
+    const style = window.getComputedStyle(ele);
+
+    assert( style.position == "sticky" );
+
+    const a = document.querySelectorAll("a")[0];
+
+    assert(a.href == "https://github.com/candlelibrary/")
+
+}

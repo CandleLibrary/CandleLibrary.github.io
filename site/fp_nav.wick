@@ -1,0 +1,55 @@
+import testing from "@test";
+import {module_name} from "@globals";
+import {social_link_data} from "./libraries.json";
+
+export default <header>
+        <div id="nav-bug">
+            Candle Library{ (module_name) ? (": " + module_name) : "" }
+        </div>
+        <container id="nav-social-links" data={social_link_data}>
+            <a {href}>{name}</a>
+        </container>
+    </header>;
+
+<style>
+
+
+    root {
+        box-sizing: border-box;
+        position:sticky;
+        width:100%;
+        padding:5px 20px;
+        border-bottom: 1px solid black;
+    }
+
+    #nav-bug {
+        display:inline-block;
+        width:50px;
+        height:50px;
+    }
+
+    #nav-social-links {
+        display:inline-block;
+        top:0;
+        float:right;
+        height:50px;
+    }
+
+    #nav-social-links a {
+        display:inline-block;
+        height:30px;
+        margin:0 10px;
+        padding:5px;
+        border-radius:5px;
+        color:white;
+        background-color: #889;
+    }
+</style>
+
+testing: {
+
+    const style = window.getComputedStyle(ele);
+
+    assert( style.position == "sticky" );
+
+}
